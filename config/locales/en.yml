@@ -29,3 +29,5 @@
 
 en:
   hello: "Hello world"
+  # error messages
+  word_not_found: "Word not found"
