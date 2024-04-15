@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_115357) do
   end
 
   create_table "words", force: :cascade do |t|
-    t.string "w", null: false
+    t.string "word", null: false
     t.string "syllabic_division"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
