@@ -55,6 +55,6 @@ class WordsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def word_params
-      params.require(:word).permit(:w, :syllabic_division)
+      params.require(:word).permit(:word, :syllabic_division)
     end
 end
