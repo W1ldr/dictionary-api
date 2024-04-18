@@ -79,6 +79,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: dictionary_api_production
   username: dictionary_api
   password: <%= ENV["DICTIONARY_API_DATABASE_PASSWORD"] %>
