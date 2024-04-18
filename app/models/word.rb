@@ -18,7 +18,7 @@ class Word < ApplicationRecord
     end
 
     return {
-      "word": self.w,
+      "word": self.word,
       "syllabic_division": self.syllabic_division,
       "meanings": meanings
     }
