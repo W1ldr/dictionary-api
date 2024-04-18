@@ -2,7 +2,7 @@ class Word < ApplicationRecord
   has_many :meanings
   
   def self.search_word(word)
-    word = Word.find_by(w: word)   
+    word = Word.find_by(word: word)   
     return word.info if word.present?
   end
 
