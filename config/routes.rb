@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # resources :words, except: [:show]
 
   scope "api/v1" do
-    get '/words/:word', to: 'words#show'
+    get "/words/:word",  to: "words#show"
+    get "/word_list",    to: "words#index"
+    get "/list/:letter", to: "words#list_by_letter"
   end
   
   

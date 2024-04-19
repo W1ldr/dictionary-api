@@ -17,6 +17,9 @@ gem "puma", ">= 5.0"
 # .env gem
 gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/load'
 
+# will help us with pagination
+gem 'kaminari'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
