@@ -5,15 +5,12 @@ class WordsController < ApplicationController
 
   # GET /words
   def index
-    @words = Word.order(word: :asc).page(@page).per(@per_page).pluck(:word)
-
-    render json: @words
+    render json: Word.list_of_words(@page, @per_page)
   end
 
   def list_by_letter
     if @letter.present?
-      @words = Word.where("word like ?", "#{@letter}%").order(word: :asc).page(@page).per(@per_page).pluck(:word)
-      render json: @words
+      render json: Word.list_of_words(@page, @per_page, @letter)
     else
       render json: { message: I18n.t("letter_not_found") }, status: :not_found
     end
@@ -27,30 +24,6 @@ class WordsController < ApplicationController
       render json: { message: I18n.t("word_not_found") }, status: :not_found
     end
   end
-
-  # POST /words
-  # def create
-  #   @word = Word.new(word_params)
-  #   if @word.save
-  #     render json: @word, status: :created, location: @word
-  #   else
-  #     render json: @word.errors, status: :unprocessable_entity
-  #   end
-  # end
-
-  # PATCH/PUT /words/1
-  # def update
-  #   if @word.update(word_params)
-  #     render json: @word
-  #   else
-  #     render json: @word.errors, status: :unprocessable_entity
-  #   end
-  # end
-
-  # DELETE /words/1
-  # def destroy
-  #   @word.destroy!
-  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
