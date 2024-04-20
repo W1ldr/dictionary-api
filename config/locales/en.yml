@@ -31,3 +31,4 @@ en:
   hello: "Hello world"
   # error messages
   word_not_found: "Word not found"
+  letter_not_found: "Letter not found"
