@@ -1,6 +1,7 @@
 class Word < ApplicationRecord
   has_many :meanings
-  
+  paginates_per 20
+
   def self.search_word(word)
     word = Word.find_by(word: word)   
     return word.info if word.present?
@@ -23,9 +24,7 @@ class Word < ApplicationRecord
         "total_pages":   words.total_pages,
       }
     }
-
   end
-
 
   def info
     meanings = []
