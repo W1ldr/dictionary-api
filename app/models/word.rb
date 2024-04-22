@@ -11,7 +11,7 @@ class Word < ApplicationRecord
     if letter.nil?
       words = Word.order(word: :asc).page(page).per(per_page)
     else
-      words = Word.where("word like ?", "#{letter}%").order(word: :asc).page(page).per(per_page)
+      words = Word.where("lower(word) like ?", "#{letter.downcase}%").order(word: :asc).page(page).per(per_page)
     end
     
     words_array = words.pluck(:word)
