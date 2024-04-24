@@ -40,7 +40,7 @@ This is an open portuguese API, fell free to contribute
   - `per_page`: Number of items per page (optional)
 - **Example Response**:
 
-  ````json
+  ```json
   {
     "words": [
       "à luz de",
@@ -60,8 +60,9 @@ This is an open portuguese API, fell free to contribute
       "prev_page": 1,
       "total_pages": 11697
     }
-  }```
-  ````
+  }
+  ```
+
 
 ### `/api/v1/words/:word`
 
@@ -108,7 +109,7 @@ This is an open portuguese API, fell free to contribute
   - `per_page`: Number of items per page (optional)
 - **Example Response**:
 
-  ````json
+  ```json
   {
     "words": [
       "bababi",
@@ -123,5 +124,5 @@ This is an open portuguese API, fell free to contribute
       "prev_page": 3,
       "total_pages": 1103
     }
-  }```
-  ````
+  }
+  ```
