@@ -36,6 +36,7 @@ This is an open portuguese API, fell free to contribute
 - **Method**: GET
 - **Description**: Retrieve a list of all words.
 - **Parameters**:
+  - `letter`: filter by letter(optional)
   - `page`: Page number (optional)
   - `per_page`: Number of items per page (optional)
 - **Example Response**:
@@ -96,33 +97,5 @@ This is an open portuguese API, fell free to contribute
         "definition": "Etimologia (origem da palavra barco). A palavra barco deriva como masculino de barca, do latim \"barca,ae\" com o mesmo sentido."
       }
     ]
-  }
-  ```
-
-### `/api/v1/words/starting_with/:letter`
-
-- **Method**: GET
-- **Description**: list all the words starting with a letter
-- **Note**: replace the :letter with the word you want like `/api/v1/words/starting_with/a`
-- **Parameters**:
-  - `page`: Page number (optional)
-  - `per_page`: Number of items per page (optional)
-- **Example Response**:
-
-  ```json
-  {
-    "words": [
-      "bababi",
-      "babaca",
-      "babaça",
-      "babaço",
-      "babaçu"
-    ],
-    "pagination": {
-      "current_page": 4,
-      "next_page": 5,
-      "prev_page": 3,
-      "total_pages": 1103
-    }
   }
   ```
