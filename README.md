@@ -21,7 +21,7 @@ This is an open portuguese API, fell free to contribute
 
 - ## How to run the test suite
 
-  - 1 - `rails t`
+  - 1 - `rails spec`
 
     NOTE1: currently there is no test...
 
@@ -64,6 +64,38 @@ This is an open portuguese API, fell free to contribute
   }
   ```
 
+### `/api/v1/search_words`
+
+- **Method**: GET
+- **Description**: serach for a word and return a list with matching words.
+- **Parameters**:
+  - `word`: word to look for
+  - `page`: Page number (optional)
+  - `per_page`: Number of items per page (optional)
+- **Example Response**:
+
+  ```json
+  {
+    "words": [
+      "à luz de",
+      "a olho nu",
+      "a partir",
+      "a partir de",
+      "a posteriori",
+      "a priori",
+      "a propósito",
+      "a reboque",
+      "a respeito de",
+      "à risca"
+    ],
+    "pagination": {
+      "current_page": 2,
+      "next_page": 3,
+      "prev_page": 1,
+      "total_pages": 11697
+    }
+  }
+  ```
 
 ### `/api/v1/words/:word`
 

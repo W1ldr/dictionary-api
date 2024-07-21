@@ -1,3 +1,3 @@
 class Meaning < ApplicationRecord
-  has_one :word
+  belongs_to :word
 end

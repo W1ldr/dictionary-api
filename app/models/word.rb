@@ -1,11 +1,32 @@
 class Word < ApplicationRecord
   has_many :meanings
+
+  validates :word, presence: true
+  validates :word, uniqueness: true
+  
   paginates_per 20
 
-  def self.search_word(word)
-    word = Word.find_by(word: word)   
+  def self.find_word(word)
+    word = Word.find_by(word: word)
     return word.info if word.present?
   end
+
+  def self.search_words(page = 1, per_page = 20, word)
+    words = Word.where("lower(word) like ?", "%#{word.downcase}%").order(word: :asc).page(page).per(per_page)
+    
+    words_array = words.pluck(:word)
+    return {
+      "words": words_array,
+      "pagination": {
+        "current_page":  words.current_page, 
+        "next_page":     words.next_page,
+        "prev_page":     words.prev_page,
+        "total_pages":   words.total_pages,
+      }
+    }
+  end
+
+
 
   def self.list_of_words(page, per_page, letter = nil)
     if letter.nil?
