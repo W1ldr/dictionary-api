@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   scope "api/v1" do
     get "/words",                         to: "words#index", concerns: :paginatable
+    get "/search_words",                  to: "words#search_word", concerns: :paginatable
     get "/words/:word",                   to: "words#show"
-    get "/words/starting_with/:letter",   to: "words#list_by_letter", concerns: :paginatable
   end
   
   
