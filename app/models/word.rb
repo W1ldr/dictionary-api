@@ -11,8 +11,15 @@ class Word < ApplicationRecord
     return word.info if word.present?
   end
 
-  def self.search_words(page = 1, per_page = 20, word)
+  def self.search_words(page, per_page, word = nil, start_with = nil)
+    
     words = Word.where("lower(word) like ?", "%#{word.downcase}%").order(word: :asc).page(page).per(per_page)
+    
+    if start_with.nil?
+      words = Word.order(word: :asc).page(page).per(per_page)
+    else
+      words = Word.where("lower(word) like ?", "#{letter.downcase}%")
+    end
     
     words_array = words.pluck(:word)
     return {
@@ -29,11 +36,7 @@ class Word < ApplicationRecord
 
 
   def self.list_of_words(page, per_page, letter = nil)
-    if letter.nil?
-      words = Word.order(word: :asc).page(page).per(per_page)
-    else
-      words = Word.where("lower(word) like ?", "#{letter.downcase}%").order(word: :asc).page(page).per(per_page)
-    end
+
     
     words_array = words.pluck(:word)
     return {
